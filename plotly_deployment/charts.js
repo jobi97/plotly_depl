@@ -64,11 +64,11 @@ function buildCharts(sample) {
     var sampleArray = samples.filter(sampleObj => sampleObj.id == sample);
     // 4. Create a variable that filters the samples for the object with the desired sample number.
     var metadata = data.metadata;
-    var metaArray = metadata.filter(sampleObj => sampleObj.id == sample);
+    var metadataArray = metadata.filter(sampleObj => sampleObj.id == sample);
     //  5. Create a variable that holds the first sample in the array.
     var result = sampleArray[0];
     // for metadata array
-    var result1 = metaArray[0];
+    var result1 = metadataArray[0];
 
     // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
     var otu_ids = result.otu_ids
@@ -77,12 +77,6 @@ function buildCharts(sample) {
     console.log(otu_ids)
     console.log(otu_labels)
     console.log(sample_values)
-
-
-    //for washing later on
-
-    var wash = parseFloat(result1.wfreq)
-    console.log(wash)
 
     // 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order  
@@ -110,7 +104,11 @@ function buildCharts(sample) {
     };
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar",barchartData, barchartLayout);
+  
+    //turn to float 
 
+    var wash = parseFloat(result1.wfreq)
+    console.log(wash)
 
     // . Create the trace for the bubble chart.
     var bubblechartData = [{
