@@ -139,8 +139,10 @@ function buildCharts(sample) {
     Plotly.newPlot("bubble",bubblechartData, bubblechartLayout);
   
 
+ //turn to float 
 
-
+var wash = parseFloat(result1.wfreq)
+console.log(wash)
 // 4. Create the trace for the gauge chart.
 var gaugechartData = [
   {
